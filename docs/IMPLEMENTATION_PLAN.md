@@ -22,7 +22,7 @@ Iskedyul is a **semester course planner** for UPLB that composes with [Room TBA]
 ### Should have (v0.2)
 
 - Multiple named plans ("Plan A", "Plan B").
-- **ICS export** for Google Calendar.
+- **Google Calendar export** — download `.ics` (recurring weekly events, Asia/Manila, room + Room TBA link in description); see [GOOGLE_CALENDAR_EXPORT.md](./GOOGLE_CALENDAR_EXPORT.md).
 - Summary stats: units (if derivable), days on campus, earliest/latest class.
 - Mobile-first layout; usable at 320px width.
 
@@ -57,7 +57,7 @@ Iskedyul is a **semester course planner** for UPLB that composes with [Room TBA]
 │          │     ...                                      │
 │ ⚠ clash  │ 13 ████ CHEM18 LEC ████  ← overlaps MATH     │
 ├──────────┴──────────────────────────────────────────────┤
-│  [ Open today in Room TBA ]                               │
+│  [ Open today in Room TBA ]  [ Export to Google Calendar ▼ ] │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -93,7 +93,7 @@ flowchart LR
 | Package | Role |
 | ------- | ---- |
 | `apps/web` | SvelteKit or Astro+Svelte UI |
-| `packages/planner-core` | Slot parsing, grid placement, conflict algo — **pure TS, fully unit tested** |
+| `packages/planner-core` | Slot parsing, grid placement, conflict algo, **ICS / Google Calendar export** — **pure TS, fully unit tested** |
 | `packages/room-tba-client` | Typed fetch, term cache, pagination helpers |
 | `packages/schedule-parse` | Import normalizer (shared with Room TBA long-term) |
 
@@ -183,7 +183,7 @@ See [ROOM_TBA_INTEGRATION.md](./ROOM_TBA_INTEGRATION.md) for API detail.
 ### Phase 2 — Polish
 
 - [ ] Multiple plans, rename, duplicate
-- [ ] ICS export
+- [ ] **Google Calendar export** — `buildICS()` in `planner-core`, download button, import instructions; per [GOOGLE_CALENDAR_EXPORT.md](./GOOGLE_CALENDAR_EXPORT.md)
 - [ ] Print-friendly week view
 - [ ] PWA shell (optional)
 
@@ -199,7 +199,7 @@ See [ROOM_TBA_INTEGRATION.md](./ROOM_TBA_INTEGRATION.md) for API detail.
 
 | Layer | What |
 | ----- | ---- |
-| `planner-core` | Slot parser edge cases (`MTWTHFS`, `Th`, midnight boundaries), conflict pairs, import matching |
+| `planner-core` | Slot parser edge cases (`MTWTHFS`, `Th`, midnight boundaries), conflict pairs, import matching, **ICS golden files** |
 | `room-tba-client` | Mock fetch; snapshot tests against recorded `/api/classes` fixture (gitignored JSON from staging) |
 | Component | Grid renders clash state at 320px |
 | E2E (later) | Add section → clash appears → link href points to room-tba.uplbtools.me |

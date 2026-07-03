@@ -25,6 +25,8 @@ Pick term → Search course (e.g. MATH 27) → Add LEC + LAB sections
 Weekly grid highlights clashes in red
      ↓
 "Open in Room TBA" → map pin, building directions, day route between classes
+     ↓
+"Export to Google Calendar" → download .ics → import in Google Calendar
 ```
 
 ### Import path
@@ -51,11 +53,13 @@ Deep integration spec: [docs/ROOM_TBA_INTEGRATION.md](docs/ROOM_TBA_INTEGRATION.
 | Time conflict detection | ✓ | |
 | Room TBA deep links | ✓ | |
 | AMIS/CRS import | ✓ | |
+| **Export to Google Calendar** (`.ics` download) | | ✓ |
 | Multiple saved plans | | ✓ |
-| ICS calendar export | | ✓ |
 | Walking time between classes | | ✓ (reuse Room TBA route logic) |
 | Final exam overlay | | ✓ |
 | GE / free-elective checklist | | ✓ |
+
+Calendar export detail: [docs/GOOGLE_CALENDAR_EXPORT.md](docs/GOOGLE_CALENDAR_EXPORT.md).
 
 ## Repo layout (planned)
 
@@ -69,7 +73,8 @@ iskedyul/
 │   └── schedule-parse/   # shared import normalizer (may extract from room-tba)
 └── docs/
     ├── IMPLEMENTATION_PLAN.md
-    └── ROOM_TBA_INTEGRATION.md
+    ├── ROOM_TBA_INTEGRATION.md
+    └── GOOGLE_CALENDAR_EXPORT.md
 ```
 
 ## Contributing
