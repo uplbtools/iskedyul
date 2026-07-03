@@ -1,0 +1,14 @@
+{
+  "name": "iskedyul",
+  "private": true,
+  "description": "UPLB semester course planner — integrates with Room TBA for room-aware timetables",
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "lint": "echo \"No packages yet — see docs/IMPLEMENTATION_PLAN.md\"",
+    "test": "echo \"No tests yet\""
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
