@@ -1,21 +1,21 @@
 # Iskedyul
 
-**Build your UPLB semester timetable — then see it on the campus map.**
+**Build your UPLB semester timetable: then see it on the campus map.**
 
 A course planner for [UPLB](https://uplb.edu.ph) students: search offerings, pick LEC/LAB sections, spot schedule clashes, and hand off to [Room TBA](https://room-tba.uplbtools.me) for room locations, walking routes, and finals info.
 
-> Status: **early planning** — see [docs/IMPLEMENTATION_PLAN.md](docs/IMPLEMENTATION_PLAN.md).
+> Status: **early planning**: see [docs/IMPLEMENTATION_PLAN.md](docs/IMPLEMENTATION_PLAN.md).
 
 ## Why this exists
 
-CRS tells you *what* you enrolled in. Room TBA tells you *where* it meets. Nothing yet ties them into a **visual week view** you can iterate on before enlistment — or export after.
+CRS tells you *what* you enrolled in. Room TBA tells you *where* it meets. Nothing yet ties them into a **visual week view** you can iterate on before enlistment: or export after.
 
 Iskedyul fills that gap:
 
-- **Plan before you commit** — draft timetables, compare section options, check conflicts
-- **Room-aware** — every block links to the room on the campus map
-- **Same data as Room TBA** — class rows come from the shared AMIS import pipeline, not a stale spreadsheet
-- **No account required** — plans live in the browser (localStorage) until we add optional sync
+- **Plan before you commit**: draft timetables, compare section options, check conflicts
+- **Room-aware**: every block links to the room on the campus map
+- **Same data as Room TBA**: class rows come from the shared AMIS import pipeline, not a stale spreadsheet
+- **No account required**: plans live in the browser (localStorage) until we add optional sync
 
 ## Core flows
 
@@ -31,7 +31,7 @@ Weekly grid highlights clashes in red
 
 ### Import path
 
-Already enlisted? Paste or upload your CRS/AMIS schedule export — same normalized format Room TBA uses for schedule import — and Iskedyul builds the grid, then matches rows to campus rooms.
+Already enlisted? Paste or upload your CRS/AMIS schedule export: same normalized format Room TBA uses for schedule import: and Iskedyul builds the grid, then matches rows to campus rooms.
 
 ## Relationship to Room TBA
 
@@ -79,8 +79,8 @@ iskedyul/
 
 ## Contributing
 
-Planning phase — game-changing feedback welcome via issues. Code contributions open after Phase 0 spike.
+Planning phase: game-changing feedback welcome via issues. Code contributions open after Phase 0 spike.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT: see [LICENSE](LICENSE).

@@ -32,12 +32,12 @@ https://calendar.google.com/calendar/render?action=TEMPLATE
   &details={encodedDescription}
 ```
 
-Limited to **one occurrence** — use for debugging or sharing a single meeting, not full-semester export.
+Limited to **one occurrence**: use for debugging or sharing a single meeting, not full-semester export.
 
 ### Out of scope (for now)
 
-- **Google Calendar API + OAuth** — full two-way sync; needs accounts, token storage, and ToS review.
-- **Live `webcal://` subscription URL** — requires hosted feed endpoint and cache invalidation when Room TBA re-imports classes.
+- **Google Calendar API + OAuth**: full two-way sync; needs accounts, token storage, and ToS review.
+- **Live `webcal://` subscription URL**: requires hosted feed endpoint and cache invalidation when Room TBA re-imports classes.
 
 Revisit subscription feeds if students ask for auto-updates when room assignments change mid-semester.
 
@@ -57,11 +57,11 @@ Each **grid block** (one day + time range for one class section) becomes one **r
 | `UID` | `{planId}-{classId}-{day}@iskedyul.uplbtools.me` (stable for re-export) |
 | `URL` | Room TBA deep link when `roomCode` present |
 
-**Term bounds:** from `/api/terms` — `startDate` / `endDate` set `RRULE UNTIL` and clip the first week if enlistment starts mid-week.
+**Term bounds:** from `/api/terms`: `startDate` / `endDate` set `RRULE UNTIL` and clip the first week if enlistment starts mid-week.
 
 **Clashing sections:** export **all** added classes; do not hide clashes. Description may prefix `⚠ Overlaps with another class` when `planner-core` reports a conflict (optional v0.2 polish).
 
-**Finals:** separate `VEVENT` series when finals data is available (Phase 3) — one-off timed events, no `RRULE`.
+**Finals:** separate `VEVENT` series when finals data is available (Phase 3): one-off timed events, no `RRULE`.
 
 ---
 
@@ -114,7 +114,7 @@ export function buildICS(input: CalendarExportInput): string;
 export function buildGoogleCalendarTemplateUrl(block: GridBlock, term: Term): string;
 ```
 
-**Dependencies:** none beyond `planner-core` — hand-roll ICS or use a tiny library (e.g. `ics` npm package) after bundle size check.
+**Dependencies:** none beyond `planner-core`: hand-roll ICS or use a tiny library (e.g. `ics` npm package) after bundle size check.
 
 **UI (`apps/web`):**
 
@@ -134,7 +134,7 @@ export function buildGoogleCalendarTemplateUrl(block: GridBlock, term: Term): st
 
 ## Privacy
 
-- Export runs **client-side only** — plan data never uploaded for calendar generation.
+- Export runs **client-side only**: plan data never uploaded for calendar generation.
 - No instructor names in `DESCRIPTION` (consistent with Room TBA PII policy).
 - Exported file contains course codes and room codes the student already chose to plan.
 

@@ -45,7 +45,7 @@ Primary data source for section picker and grid population.
 | `limit` / `offset` | Pagination when searching |
 | `room_code` | All classes in a room (not used by planner MVP) |
 
-**Bulk load (MVP):** `GET /api/classes?term_id=1252` — full array for conflict matching client-side.
+**Bulk load (MVP):** `GET /api/classes?term_id=1252`: full array for conflict matching client-side.
 
 **Search (post-MVP):** `GET /api/classes?term_id=1252&course_code=MATH%2027&limit=25&offset=0`
 
@@ -69,9 +69,9 @@ Primary data source for section picker and grid population.
 }
 ```
 
-**Schedule slot format:** strings like `MWF 8-9`, `T 1-4`, `MTWTHFS 7-12` — parse with shared logic in `packages/planner-core` (mirror Room TBA's `schedule-import/day-stops.ts` conventions).
+**Schedule slot format:** strings like `MWF 8-9`, `T 1-4`, `MTWTHFS 7-12`: parse with shared logic in `packages/planner-core` (mirror Room TBA's `schedule-import/day-stops.ts` conventions).
 
-**Rows without rooms:** `roomCode: null` for thesis/special-problem types — show in grid but link as "Room TBA" with explainer copy from Room TBA's scheduled-types policy.
+**Rows without rooms:** `roomCode: null` for thesis/special-problem types: show in grid but link as "Room TBA" with explainer copy from Room TBA's scheduled-types policy.
 
 ### Deep links into Room TBA
 
@@ -81,7 +81,7 @@ Primary data source for section picker and grid population.
 | Course finals | `https://room-tba.uplbtools.me/?q={courseCode}` (existing search) |
 | Building | `https://room-tba.uplbtools.me/?q={buildingName}` |
 
-Future: `?plan={shareId}` if Room TBA adds schedule-route handoff — tracked in both repos.
+Future: `?plan={shareId}` if Room TBA adds schedule-route handoff: tracked in both repos.
 
 ---
 
@@ -89,15 +89,15 @@ Future: `?plan={shareId}` if Room TBA adds schedule-route handoff — tracked in
 
 Room TBA already parses CRS/AMIS exports in `src/lib/schedule-import/`:
 
-- `parse-import.ts` — JSON/text → normalized rows
-- `match-classes.ts` — rows ↔ `ClassMapValue` by `(courseCode, section, type)`
-- `day-stops.ts` — order stops for walking route
+- `parse-import.ts`: JSON/text → normalized rows
+- `match-classes.ts`: rows ↔ `ClassMapValue` by `(courseCode, section, type)`
+- `day-stops.ts`: order stops for walking route
 
 **Iskedyul options (pick in Phase 1):**
 
 1. **Extract** `schedule-parse` into a shared npm workspace consumed by both repos (cleanest long-term).
 2. **Copy** normalizer + tests once, document drift risk (fastest MVP).
-3. **API delegate** — new Room TBA route `POST /api/schedule/parse` (adds server coupling).
+3. **API delegate**: new Room TBA route `POST /api/schedule/parse` (adds server coupling).
 
 Recommendation: **(2) for MVP**, open Room TBA issue to extract **(1)** when planner stabilizes.
 
@@ -120,7 +120,7 @@ Keep Room TBA authoritative for:
 
 - Room/building coordinates and aliases
 - Map tiles, jeepney routes, events
-- Finals exam table (`final_exams` — future overlay via new read API or export)
+- Finals exam table (`final_exams`: future overlay via new read API or export)
 - AMIS import pipeline and term metadata fixes
 
 Iskedyul stores only **user plan state** (selected class IDs, draft names) locally.
@@ -146,7 +146,7 @@ Until CORS is wired, MVP can proxy via Iskedyul server route (`/api/room-tba/cla
 | v0.2 | Finals read API or shared finals JSON |
 | v0.3 | Optional `POST /api/planner/export` for handoff |
 
-Breaking changes to `ClassMapValue` require coordinated releases — document in Room TBA CHANGELOG.
+Breaking changes to `ClassMapValue` require coordinated releases: document in Room TBA CHANGELOG.
 
 ---
 

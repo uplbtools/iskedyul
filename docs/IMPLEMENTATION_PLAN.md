@@ -1,9 +1,9 @@
 # Implementation plan (tentative)
 
-**Last updated:** 2026-07-03  
-**Status:** draft — integration contracts may move as Room TBA APIs evolve.
+**Last updated:** 2026-07-03 
+**Status:** draft: integration contracts may move as Room TBA APIs evolve.
 
-Iskedyul is a **semester course planner** for UPLB that composes with [Room TBA](https://github.com/uplbtools/room-tba): plan the week here, navigate the campus there.
+Iskedyul is a **semester course planner** for UPLB that composes with [Room TBA](https://github.com/uplbtools/room-tba): plan the week here, work through the campus there.
 
 ---
 
@@ -22,13 +22,13 @@ Iskedyul is a **semester course planner** for UPLB that composes with [Room TBA]
 ### Should have (v0.2)
 
 - Multiple named plans ("Plan A", "Plan B").
-- **Google Calendar export** — download `.ics` (recurring weekly events, Asia/Manila, room + Room TBA link in description); see [GOOGLE_CALENDAR_EXPORT.md](./GOOGLE_CALENDAR_EXPORT.md).
+- **Google Calendar export**: download `.ics` (recurring weekly events, Asia/Manila, room + Room TBA link in description); see [GOOGLE_CALENDAR_EXPORT.md](./GOOGLE_CALENDAR_EXPORT.md).
 - Summary stats: units (if derivable), days on campus, earliest/latest class.
 - Mobile-first layout; usable at 320px width.
 
-### Should have (v0.3 — Room TBA synergy)
+### Should have (v0.3: Room TBA synergy)
 
-- **Day route preview** — ordered stops with map link (port Room TBA schedule-route concept).
+- **Day route preview**: ordered stops with map link (port Room TBA schedule-route concept).
 - **Finals week overlay** when exam data is available.
 - Staging/prod env switch for Room TBA base URL.
 
@@ -63,7 +63,7 @@ Iskedyul is a **semester course planner** for UPLB that composes with [Room TBA]
 
 Interaction principles:
 
-- Clashes are obvious (red border + list in sidebar) but don't block adding — students want to see *how* bad the clash is.
+- Clashes are obvious (red border + list in sidebar) but don't block adding: students want to see *how* bad the clash is.
 - Empty room → gray block, tooltip explains thesis/TBA sections.
 - One tap from block → Room TBA room page.
 
@@ -93,13 +93,13 @@ flowchart LR
 | Package | Role |
 | ------- | ---- |
 | `apps/web` | SvelteKit or Astro+Svelte UI |
-| `packages/planner-core` | Slot parsing, grid placement, conflict algo, **ICS / Google Calendar export** — **pure TS, fully unit tested** |
+| `packages/planner-core` | Slot parsing, grid placement, conflict algo, **ICS / Google Calendar export**: **pure TS, fully unit tested** |
 | `packages/room-tba-client` | Typed fetch, term cache, pagination helpers |
 | `packages/schedule-parse` | Import normalizer (shared with Room TBA long-term) |
 
 **Deploy:** Vercel static/SSR for `apps/web`. No Iskedyul database in MVP.
 
-**Stack bias:** Bun + Svelte 5 + TypeScript — aligns with Room TBA for future package extraction.
+**Stack bias:** Bun + Svelte 5 + TypeScript: aligns with Room TBA for future package extraction.
 
 ---
 
@@ -134,7 +134,7 @@ type Conflict = {
 };
 ```
 
-**Slot parsing:** port/adapt Room TBA `day-stops` logic — handle `Th` vs `T`, combined days (`MWF`), and ranges (`8-9`, `1-4`).
+**Slot parsing:** port/adapt Room TBA `day-stops` logic: handle `Th` vs `T`, combined days (`MWF`), and ranges (`8-9`, `1-4`).
 
 **Conflict rule (MVP):** same `day`, intervals `[start, end)` intersect with ≥ 1 minute overlap.
 
@@ -161,7 +161,7 @@ See [ROOM_TBA_INTEGRATION.md](./ROOM_TBA_INTEGRATION.md) for API detail.
 
 ## 6. Delivery phases
 
-### Phase 0 — Data spike (1 session)
+### Phase 0: Data spike (1 session)
 
 - [ ] `room-tba-client`: fetch terms + full class list for current term
 - [ ] Log parse success rate: `% of schedule strings → valid GridBlock`
@@ -169,7 +169,7 @@ See [ROOM_TBA_INTEGRATION.md](./ROOM_TBA_INTEGRATION.md) for API detail.
 
 **Exit:** Script or minimal page loads 3k+ classes and parses ≥ 95% of LEC/LAB slots without error.
 
-### Phase 1 — Planner MVP (2–3 sessions)
+### Phase 1: Planner MVP (2–3 sessions)
 
 - [ ] `planner-core` with tests (fixtures from Room TBA `match-classes.test.ts`)
 - [ ] Weekly grid component + section search UI
@@ -180,14 +180,14 @@ See [ROOM_TBA_INTEGRATION.md](./ROOM_TBA_INTEGRATION.md) for API detail.
 
 **Exit:** Student can build a 5-course plan, see a clash, open a room in Room TBA.
 
-### Phase 2 — Polish
+### Phase 2: Polish
 
 - [ ] Multiple plans, rename, duplicate
-- [ ] **Google Calendar export** — `buildICS()` in `planner-core`, download button, import instructions; per [GOOGLE_CALENDAR_EXPORT.md](./GOOGLE_CALENDAR_EXPORT.md)
+- [ ] **Google Calendar export**: `buildICS()` in `planner-core`, download button, import instructions; per [GOOGLE_CALENDAR_EXPORT.md](./GOOGLE_CALENDAR_EXPORT.md)
 - [ ] Print-friendly week view
 - [ ] PWA shell (optional)
 
-### Phase 3 — Campus-aware planning
+### Phase 3: Campus-aware planning
 
 - [ ] "Time to next class" using building coords from Room TBA (needs room→building join or API extension)
 - [ ] Finals overlay
@@ -204,7 +204,7 @@ See [ROOM_TBA_INTEGRATION.md](./ROOM_TBA_INTEGRATION.md) for API detail.
 | Component | Grid renders clash state at 320px |
 | E2E (later) | Add section → clash appears → link href points to room-tba.uplbtools.me |
 
-Never call live AMIS or production DB in CI — use Room TBA staging fixtures.
+Never call live AMIS or production DB in CI: use Room TBA staging fixtures.
 
 ---
 
@@ -221,10 +221,10 @@ Never call live AMIS or production DB in CI — use Room TBA staging fixtures.
 
 ## 9. Open questions
 
-1. **Domain:** `iskedyul.uplbtools.me` vs path on `room-tba.uplbtools.me/planner` — separate app keeps bundle small but splits UX.
-2. **Class snapshot size:** ~3k rows/term — full fetch OK or require server-side search only?
+1. **Domain:** `iskedyul.uplbtools.me` vs path on `room-tba.uplbtools.me/planner`: separate app keeps bundle small but splits UX.
+2. **Class snapshot size:** ~3k rows/term: full fetch OK or require server-side search only?
 3. **Units / prerequisites:** do we have reliable credit data in AMIS imports, or skip until manual GE checklist?
-4. **Midyear intensive blocks:** `MTWTHFS 7-12` spans — same parser rules as Room TBA schedule route?
+4. **Midyear intensive blocks:** `MTWTHFS 7-12` spans: same parser rules as Room TBA schedule route?
 5. **Coordination owner:** who merges CORS change in Room TBA before public Iskedyul launch?
 
 ---
@@ -238,4 +238,4 @@ Never call live AMIS or production DB in CI — use Room TBA staging fixtures.
 
 ---
 
-*Plan intentionally overlaps Room TBA's existing schedule-import work — reuse, don't fork permanently.*
+*Plan intentionally overlaps Room TBA's existing schedule-import work: reuse, don't fork permanently.*

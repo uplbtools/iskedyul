@@ -6,7 +6,7 @@ Org-wide agent defaults: see [room-tba/AGENTS.md](https://github.com/uplbtools/r
 
 ## Status
 
-**Planning repo — no `apps/*` packages yet.** Read [docs/ROOM_TBA_INTEGRATION.md](docs/ROOM_TBA_INTEGRATION.md) before designing APIs or data shapes.
+**Planning repo: no `apps/*` packages yet.** Read [docs/ROOM_TBA_INTEGRATION.md](docs/ROOM_TBA_INTEGRATION.md) before designing APIs or data shapes.
 
 ## Doc map
 
@@ -16,13 +16,13 @@ Org-wide agent defaults: see [room-tba/AGENTS.md](https://github.com/uplbtools/r
 | Room TBA class/room API contract | [docs/ROOM_TBA_INTEGRATION.md](docs/ROOM_TBA_INTEGRATION.md) |
 | AMIS term semantics (consumer) | [room-tba AGENTS.md § AMIS](https://github.com/uplbtools/room-tba/blob/main/AGENTS.md) |
 
-## Planned stack (target — not all implemented)
+## Planned stack (target: not all implemented)
 
 - **Monorepo:** npm workspaces
 - **Runtime:** Bun + **Svelte 5** + TypeScript
 - **App shell:** SvelteKit or Astro + Svelte (TBD in plan)
 - **Deploy:** Vercel
-- **MVP storage:** localStorage — no server DB in v1
+- **MVP storage:** localStorage: no server DB in v1
 - **Export:** Google Calendar `.ics` generation client-side
 
 Follow **Room TBA** conventions for community links, maroon accent UI, and calm static UX when UI work starts.
@@ -34,8 +34,8 @@ Follow **Room TBA** conventions for community links, maroon accent UI, and calm 
 
 ## Room TBA integration rules
 
-- **Do not re-import AMIS** in iskedyul — consume Room TBA's `/api` class and room data
-- **CRS `term_id` semantics** match room-tba (1251 / 1252 / 1253) — never guess term type from row counts
+- **Do not re-import AMIS** in iskedyul: consume Room TBA's `/api` class and room data
+- **CRS `term_id` semantics** match room-tba (1251 / 1252 / 1253): never guess term type from row counts
 - Cache Room TBA responses in localStorage with explicit sync/version keys
 - Offline-first timetable editing should work when Room TBA bootstrap is cached (future)
 
@@ -45,7 +45,7 @@ Follow **Room TBA** conventions for community links, maroon accent UI, and calm 
 | --- | --- |
 | `bun run check` / app lint+test | Once real packages exist |
 | `bun run build` | Before PR merge |
-| Layout @ 320px | Timetable grid must not overflow — mirror room-tba mobile rules |
+| Layout @ 320px | Timetable grid must not overflow: mirror room-tba mobile rules |
 
 ## How to work
 
