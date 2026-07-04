@@ -26,10 +26,10 @@ For one-off "add this block" from the grid context menu:
 
 ```
 https://calendar.google.com/calendar/render?action=TEMPLATE
-  &text={encodedTitle}
-  &dates={startUtc}/{endUtc}
-  &location={encodedRoom}
-  &details={encodedDescription}
+ &text={encodedTitle}
+ &dates={startUtc}/{endUtc}
+ &location={encodedRoom}
+ &details={encodedDescription}
 ```
 
 Limited to **one occurrence**: use for debugging or sharing a single meeting, not full-semester export.
@@ -102,11 +102,11 @@ END:VEVENT
 // packages/planner-core/src/calendar-export.ts
 
 export type CalendarExportInput = {
-  plan: Plan;
-  blocks: GridBlock[];
-  term: { startDate: string; endDate: string; label: string };
-  roomTbaBaseUrl: string;
-  conflicts?: Conflict[];
+ plan: Plan;
+ blocks: GridBlock[];
+ term: { startDate: string; endDate: string; label: string };
+ roomTbaBaseUrl: string;
+ conflicts?: Conflict[];
 };
 
 export function buildICS(input: CalendarExportInput): string;

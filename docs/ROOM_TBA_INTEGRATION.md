@@ -22,13 +22,13 @@ Academic terms with class counts. Pick the active term for planning.
 
 ```json
 [
-  {
-    "id": 1252,
-    "label": "2nd Sem AY 2025–2026",
-    "startDate": "2026-01-05",
-    "endDate": "2026-05-22",
-    "classCount": 3124
-  }
+ {
+ "id": 1252,
+ "label": "2nd Sem AY 2025–2026",
+ "startDate": "2026-01-05",
+ "endDate": "2026-05-22",
+ "classCount": 3124
+ }
 ]
 ```
 
@@ -51,21 +51,21 @@ Primary data source for section picker and grid population.
 
 ```json
 {
-  "rows": [
-    {
-      "id": 88421,
-      "courseCode": "MATH 27",
-      "section": "AB-1L",
-      "type": "LAB",
-      "schedule": ["T 1-4", "Th 1-4"],
-      "roomCode": "PSLH-A",
-      "roomId": 412,
-      "courseTitle": "Analytic Geometry",
-      "termId": 1252,
-      "directions": "..."
-    }
-  ],
-  "total": 3
+ "rows": [
+ {
+ "id": 88421,
+ "courseCode": "MATH 27",
+ "section": "AB-1L",
+ "type": "LAB",
+ "schedule": ["T 1-4", "Th 1-4"],
+ "roomCode": "PSLH-A",
+ "roomId": 412,
+ "courseTitle": "Analytic Geometry",
+ "termId": 1252,
+ "directions": "..."
+ }
+ ],
+ "total": 3
 }
 ```
 
@@ -105,10 +105,10 @@ Normalized row shape (no instructor PII):
 
 ```ts
 type ImportedScheduleRow = {
-  courseCode: string;
-  section: string;
-  type: string;
-  schedule: string[];
+ courseCode: string;
+ section: string;
+ type: string;
+ schedule: string[];
 };
 ```
 

@@ -21,11 +21,11 @@ Iskedyul fills that gap:
 
 ```text
 Pick term → Search course (e.g. MATH 27) → Add LEC + LAB sections
-     ↓
+ ↓
 Weekly grid highlights clashes in red
-     ↓
+ ↓
 "Open in Room TBA" → map pin, building directions, day route between classes
-     ↓
+ ↓
 "Export to Google Calendar" → download .ics → import in Google Calendar
 ```
 
@@ -66,15 +66,15 @@ Calendar export detail: [docs/GOOGLE_CALENDAR_EXPORT.md](docs/GOOGLE_CALENDAR_EX
 ```text
 iskedyul/
 ├── apps/
-│   └── web/              # planner UI (mobile-first)
+│ └── web/ # planner UI (mobile-first)
 ├── packages/
-│   ├── planner-core/     # grid, conflicts, slot parsing
-│   ├── room-tba-client/  # typed fetch wrapper for Room TBA APIs
-│   └── schedule-parse/   # shared import normalizer (may extract from room-tba)
+│ ├── planner-core/ # grid, conflicts, slot parsing
+│ ├── room-tba-client/ # typed fetch wrapper for Room TBA APIs
+│ └── schedule-parse/ # shared import normalizer (may extract from room-tba)
 └── docs/
-    ├── IMPLEMENTATION_PLAN.md
-    ├── ROOM_TBA_INTEGRATION.md
-    └── GOOGLE_CALENDAR_EXPORT.md
+ ├── IMPLEMENTATION_PLAN.md
+ ├── ROOM_TBA_INTEGRATION.md
+ └── GOOGLE_CALENDAR_EXPORT.md
 ```
 
 ## Contributing

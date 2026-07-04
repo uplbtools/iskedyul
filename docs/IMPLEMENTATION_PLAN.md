@@ -45,19 +45,19 @@ Iskedyul is a **semester course planner** for UPLB that composes with [Room TBA]
 
 ```text
 ┌─────────────────────────────────────────────────────────┐
-│  Iskedyul          Term: [2nd Sem AY 25-26 ▼]  [Import]│
+│ Iskedyul Term: [2nd Sem AY 25-26 ▼] [Import]│
 ├─────────────────────────────────────────────────────────┤
-│  Search: [ MATH 27        ] [+ Add section]             │
+│ Search: [ MATH 27 ] [+ Add section] │
 ├──────────┬──────────────────────────────────────────────┤
-│ Added    │  M   T   W   Th  F   S                       │
-│ ──────── │  7 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  │
-│ MATH27   │  8 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  │
-│  AB-1L   │  9 ████ MATH27 LAB ████                      │
-│  AB-1    │ 10 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  │
-│          │     ...                                      │
-│ ⚠ clash  │ 13 ████ CHEM18 LEC ████  ← overlaps MATH     │
+│ Added │ M T W Th F S │
+│ ──────── │ 7 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ │
+│ MATH27 │ 8 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ │
+│ AB-1L │ 9 ████ MATH27 LAB ████ │
+│ AB-1 │ 10 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ │
+│ │ ... │
+│ ⚠ clash │ 13 ████ CHEM18 LEC ████ ← overlaps MATH │
 ├──────────┴──────────────────────────────────────────────┤
-│  [ Open today in Room TBA ]  [ Export to Google Calendar ▼ ] │
+│ [ Open today in Room TBA ] [ Export to Google Calendar ▼ ] │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -73,21 +73,21 @@ Interaction principles:
 
 ```mermaid
 flowchart LR
-  subgraph iskedyul [Iskedyul]
-    UI[Web app]
-    Core[planner-core]
-    Client[room-tba-client]
-    Store[(localStorage / IDB)]
-  end
-  subgraph roomtba [Room TBA]
-    API["/api/terms, /api/classes"]
-    Map[Campus map]
-  end
-  UI --> Core
-  UI --> Client
-  Core --> Store
-  Client -->|HTTPS| API
-  UI -->|deep link| Map
+ subgraph iskedyul [Iskedyul]
+ UI[Web app]
+ Core[planner-core]
+ Client[room-tba-client]
+ Store[(localStorage / IDB)]
+ end
+ subgraph roomtba [Room TBA]
+ API["/api/terms, /api/classes"]
+ Map[Campus map]
+ end
+ UI --> Core
+ UI --> Client
+ Core --> Store
+ Client -->|HTTPS| API
+ UI -->|deep link| Map
 ```
 
 | Package | Role |
@@ -107,30 +107,30 @@ flowchart LR
 
 ```ts
 type Plan = {
-  id: string;
-  name: string;
-  termId: number;
-  addedClassIds: number[]; // references Room TBA classes.id
-  createdAt: string;
-  updatedAt: string;
+ id: string;
+ name: string;
+ termId: number;
+ addedClassIds: number[]; // references Room TBA classes.id
+ createdAt: string;
+ updatedAt: string;
 };
 
 type GridBlock = {
-  classId: number;
-  courseCode: string;
-  section: string;
-  type: string;
-  courseTitle: string | null;
-  roomCode: string | null;
-  day: Weekday; // M | T | W | Th | F | S
-  startMinutes: number; // minutes from midnight
-  endMinutes: number;
+ classId: number;
+ courseCode: string;
+ section: string;
+ type: string;
+ courseTitle: string | null;
+ roomCode: string | null;
+ day: Weekday; // M | T | W | Th | F | S
+ startMinutes: number; // minutes from midnight
+ endMinutes: number;
 };
 
 type Conflict = {
-  classIds: [number, number];
-  day: Weekday;
-  overlapMinutes: number;
+ classIds: [number, number];
+ day: Weekday;
+ overlapMinutes: number;
 };
 ```
 
