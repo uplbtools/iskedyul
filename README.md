@@ -79,7 +79,7 @@ iskedyul/
 
 ## Contributing
 
-Planning phase: game-changing feedback welcome via issues. Code contributions open after Phase 0 spike.
+Planning phase: open an issue with concrete feedback. Code contributions open after Phase 0 spike.
 
 ## License
 
